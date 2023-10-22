@@ -1,0 +1,82 @@
+LEXICAL ANALYZER USING JAVA FOR JAVA PROGRAMMING LANGUAGE
+Enter Java File Name to be Analyzed : 
+Java File Identified Successfully ......
+< public , KEYWORD >
+< class , KEYWORD >
+< Test , IDENTIFIER >
+< { , SPECIAL SYMBOL >
+< public , KEYWORD >
+< static , KEYWORD >
+< void , KEYWORD >
+< main , IDENTIFIER >
+< ( , SPECIAL SYMBOL >
+< String , IDENTIFIER >
+< args , IDENTIFIER >
+< [ , SPECIAL SYMBOL >
+< ] , SPECIAL SYMBOL >
+< ) , SPECIAL SYMBOL >
+< { , SPECIAL SYMBOL >
+< System , IDENTIFIER >
+< . , SPECIAL SYMBOL >
+< out , IDENTIFIER >
+< . , SPECIAL SYMBOL >
+< println , IDENTIFIER >
+< ( , SPECIAL SYMBOL >
+< "Hello world" , STRING >
+< ) , SPECIAL SYMBOL >
+< ; , SPECIAL SYMBOL >
+< int , KEYWORD >
+< i , IDENTIFIER >
+< = , SPECIAL SYMBOL >
+< 0 , NUMBER >
+< ; , SPECIAL SYMBOL >
+< if , KEYWORD >
+< ( , SPECIAL SYMBOL >
+< i , IDENTIFIER >
+< > , RELATIONAL OPERATOR >
+< 3 , NUMBER >
+< ) , SPECIAL SYMBOL >
+< { , SPECIAL SYMBOL >
+< System , IDENTIFIER >
+< . , SPECIAL SYMBOL >
+< out , IDENTIFIER >
+< . , SPECIAL SYMBOL >
+< println , IDENTIFIER >
+< ( , SPECIAL SYMBOL >
+< "i is greater than 3" , STRING >
+< ) , SPECIAL SYMBOL >
+< ; , SPECIAL SYMBOL >
+< } , SPECIAL SYMBOL >
+< else , KEYWORD >
+< if , KEYWORD >
+< ( , SPECIAL SYMBOL >
+< i , IDENTIFIER >
+< < , RELATIONAL OPERATOR >
+< 3 , NUMBER >
+< ) , SPECIAL SYMBOL >
+< { , SPECIAL SYMBOL >
+< System , IDENTIFIER >
+< . , SPECIAL SYMBOL >
+< out , IDENTIFIER >
+< . , SPECIAL SYMBOL >
+< println , IDENTIFIER >
+< ( , SPECIAL SYMBOL >
+< "i is less than 3" , STRING >
+< ) , SPECIAL SYMBOL >
+< ; , SPECIAL SYMBOL >
+< } , SPECIAL SYMBOL >
+< else , KEYWORD >
+< { , SPECIAL SYMBOL >
+< System , IDENTIFIER >
+< . , SPECIAL SYMBOL >
+< out , IDENTIFIER >
+< . , SPECIAL SYMBOL >
+< println , IDENTIFIER >
+< ( , SPECIAL SYMBOL >
+< "i is equal to 3" , STRING >
+< ) , SPECIAL SYMBOL >
+< ; , SPECIAL SYMBOL >
+< } , SPECIAL SYMBOL >
+< } , SPECIAL SYMBOL >
+< } , SPECIAL SYMBOL >
+Total number of Tokens : 78
