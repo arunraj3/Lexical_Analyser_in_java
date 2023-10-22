@@ -19,6 +19,8 @@ public class LexicalAnalyzer {
     private static final String ARITHMETIC_OPERATOR_REGEX = "[+\\-*/%]";
     private static final String SPECIAL_SYMBOLS_REGEX = "[!@#$%^&*()_+=\\-\\[\\]{};:'\"<>,.?/\\\\|]";
 
+   
+
     public static void main(String args[]) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter Java File Name to be Analyzed : ");
@@ -40,7 +42,33 @@ public class LexicalAnalyzer {
                         inputFileAsString.append(eachLine).append("\n");
                     }
                     reader.close();
-                    System.out.println(inputFileAsString);
+                    // System.out.println(inputFileAsString);
+                    Pattern syntaxPattern = Pattern.compile(
+                            KEYWORD_REGEX + "|" +
+                                    IDENTIFIER_REGEX + "|" +
+                                    STRING_LITERAL_REGEX + "|" +
+                                    CHAR_LITERAL_REGEX + "|" +
+                                    NUMBER_REGEX + "|" +
+                                    WHITESPACE_REGEX + "|" +
+                                    RELATIONAL_OPERATOR_REGEX + "|" +
+                                    LOGICAL_OPERATOR_REGEX + "|" +
+                                    BITWISE_OPERATOR_REGEX + "|" +
+                                    ARITHMETIC_OPERATOR_REGEX + "|" +
+                                    SPECIAL_SYMBOLS_REGEX);
+
+                    Matcher syntaxMatcher = syntaxPattern.matcher(inputFileAsString);
+
+                    while (syntaxMatcher.find()) {
+                        
+                        String matchedToken = syntaxMatcher.group();
+
+                        if(!matchedToken.matches(WHITESPACE_REGEX)){
+                            String matchedType = getMatchedType(matchedToken);
+                            System.out.println("< " + matchedToken + " , " + matchedType + " >");
+                        }
+                     
+                    }
+
                 } catch (IOException io) {
                     System.out.println("File Not Found..");
                 }
@@ -53,5 +81,29 @@ public class LexicalAnalyzer {
         }
 
     }
+    private static String getMatchedType(String token) {
 
+        StringBuilder result = new StringBuilder();
+        if (token.matches(KEYWORD_REGEX)) {
+            result.append("KEYWORD");
+        } else if (token.matches(IDENTIFIER_REGEX)) {
+            result.append("IDENTIFIER");
+        } else if (token.matches(STRING_LITERAL_REGEX)) {
+            result.append("STRING");
+        } else if (token.matches(CHAR_LITERAL_REGEX)) {
+            result.append("CHAR");
+        } else if (token.matches(NUMBER_REGEX)) {
+            result.append("NUMBER");
+        } else if (token.matches(RELATIONAL_OPERATOR_REGEX)) {
+            result.append("RELATIONAL OPERATOR");
+        } else if (token.matches(LOGICAL_OPERATOR_REGEX)) {
+            result.append("LOGICAL OPERATOR");
+        } else if (token.matches(BITWISE_OPERATOR_REGEX)) {
+            result.append("BITWISE OPERATOR");
+        } else if (token.matches(SPECIAL_SYMBOLS_REGEX)) {
+            result.append("SPECIAL SYMBOL");
+        }
+
+        return result.toString();
+    }
 }
