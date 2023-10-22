@@ -21,14 +21,14 @@ public class LexicalAnalyzer {
     private static final String BITWISE_OPERATOR_REGEX = "(&|\\||\\^|~|<<|>>|>>>|&=|\\|=|\\^=|<<=|>>=|>>>=)";
     private static final String ARITHMETIC_OPERATOR_REGEX = "[+\\-*/%]";
     private static final String SPECIAL_SYMBOLS_REGEX = "[!@#$%^&*()_+=\\-\\[\\]{};:'\"<>,.?/\\\\|]";
-
+    public static int totalTokenCounts = 0;
    
 
     public static void main(String args[]) {
         //Title 
         System.out.println("LEXICAL ANALYZER USING JAVA FOR JAVA PROGRAMMING LANGUAGE");
 
-
+        
         //Reading File Name using BufferedReader
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -84,11 +84,12 @@ public class LexicalAnalyzer {
                         if(!matchedToken.matches(WHITESPACE_REGEX)){
 
                             String matchedType = getMatchedType(matchedToken);
-
+                            totalTokenCounts+=1;
                             System.out.println("< " + matchedToken + " , " + matchedType + " >");
                         }
                      
                     }
+                    System.out.println("Total number of Tokens : "+totalTokenCounts);
 
                 } catch (IOException io) {
                     System.out.println("File Not Found..");
@@ -98,7 +99,7 @@ public class LexicalAnalyzer {
                 System.out.println("Enter Only Java File");
             }
         } catch (IOException ioException) {
-            
+
         }
 
     }
