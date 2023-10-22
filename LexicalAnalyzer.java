@@ -7,6 +7,9 @@ import java.util.regex.Matcher;
 
 public class LexicalAnalyzer {
 
+
+    // Defining all The Regular Expression for the JAVA programming Language
+
     private static final String KEYWORD_REGEX = "\\b(?:abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|extends|final|finally|float|for|if|implements|import|instanceof|int|interface|long|native|new|null|package|private|protected|public|return|short|static|strictfp|super|switch|synchronized|this|throw|throws|transient|try|void|volatile|while)\\b";
     private static final String IDENTIFIER_REGEX = "[a-zA-Z][a-zA-Z0-9]*";
     private static final String STRING_LITERAL_REGEX = "\"[^\"]*\"";
@@ -22,18 +25,33 @@ public class LexicalAnalyzer {
    
 
     public static void main(String args[]) {
+        //Title 
+        System.out.println("LEXICAL ANALYZER USING JAVA FOR JAVA PROGRAMMING LANGUAGE");
+
+
+        //Reading File Name using BufferedReader
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
         System.out.println("Enter Java File Name to be Analyzed : ");
 
-        String sanitizeString = ".*\\.java$";
+        
+        String sanitizeString = ".*\\.java$"; //To check Whether added file is Java file or Not
+
+
+
         try {
-            String fileName = bufferedReader.readLine();
+
+            String fileName = bufferedReader.readLine(); //Extracting FileName 
+
             Pattern pattern = Pattern.compile(sanitizeString);
             Matcher matcher = pattern.matcher(fileName);
 
             if (matcher.matches()) {
-                System.out.println("Java File Identified......");
+                System.out.println("Java File Identified Successfully ......");
+
                 StringBuilder inputFileAsString = new StringBuilder();
+
+
                 try {
                     BufferedReader reader = new BufferedReader(new FileReader(fileName));
                     String eachLine;
@@ -42,7 +60,8 @@ public class LexicalAnalyzer {
                         inputFileAsString.append(eachLine).append("\n");
                     }
                     reader.close();
-                    // System.out.println(inputFileAsString);
+
+                    //Regular Expression for JAVA  
                     Pattern syntaxPattern = Pattern.compile(
                             KEYWORD_REGEX + "|" +
                                     IDENTIFIER_REGEX + "|" +
@@ -63,7 +82,9 @@ public class LexicalAnalyzer {
                         String matchedToken = syntaxMatcher.group();
 
                         if(!matchedToken.matches(WHITESPACE_REGEX)){
+
                             String matchedType = getMatchedType(matchedToken);
+
                             System.out.println("< " + matchedToken + " , " + matchedType + " >");
                         }
                      
@@ -77,7 +98,7 @@ public class LexicalAnalyzer {
                 System.out.println("Enter Only Java File");
             }
         } catch (IOException ioException) {
-
+            
         }
 
     }
